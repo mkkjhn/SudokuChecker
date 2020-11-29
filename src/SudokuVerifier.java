@@ -31,7 +31,11 @@ public class SudokuVerifier {
 						return -1;
 					}
 				} catch (NumberFormatException ne) {
-					ne.printStackTrace();
+					//ne.printStackTrace();
+					if (ne instanceof NumberFormatException) {
+						throw ne;
+					}					
+					
 					return 1;
 				}
 			}
@@ -66,7 +70,7 @@ public class SudokuVerifier {
 			if (duplicateChecker(arrayToCheck)) {
 				return -4;
 			}
-		}
+		}			
 
 		return result;
 	}
